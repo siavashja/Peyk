@@ -4,6 +4,7 @@ from .views import *
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework.authtoken import views
 
 app_name = "core"
 
@@ -21,5 +22,6 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('start_session/', LocationSetCreateView.as_view()),
     path('add_location/', LocationCreateView.as_view()),
-    path('end_session/', LocationSetEndView.as_view())
+    path('end_session/', LocationSetEndView.as_view()),
+    path('obtain-auth-token/', views.obtain_auth_token)
 ]
